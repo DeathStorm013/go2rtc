@@ -345,15 +345,6 @@ func parseArgs(s string) *ffmpeg.Args {
 		}
 	}
 
-	switch {
-	case args.Video == 0 && args.Audio == 0:
-		args.AddCodec("-c copy")
-	case args.Video == 0:
-		args.AddCodec("-vn")
-	case args.Audio == 0:
-		args.AddCodec("-an")
-	}
-
 	// change otput from RTSP to some other pipe format
 	switch {
 	case args.Video == 0 && args.Audio == 0:
