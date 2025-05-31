@@ -24,3 +24,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with: { name: go2rtc_linux_arm64, path: go2rtc }
 
+      - name: Build go2rtc_win64
+        env: { GOOS: windows, GOARCH: amd64 }
+        run: go build -ldflags "-s -w" -trimpath
+      - name: Upload go2rtc_win64
+        uses: actions/upload-artifact@v4
+        with: { name: go2rtc_win64, path: go2rtc.exe }
